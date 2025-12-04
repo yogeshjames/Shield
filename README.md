@@ -7,10 +7,6 @@
 
 **With AI image generation becoming indistinguishable from reality, Shield helps you identify fake content in real-time.**
 
-[Features](#-features) • [Demo](#-demo) • [Installation](#-installation) • [Usage](#-usage) • [How It Works](#-how-it-works) • [API Docs](#-api-documentation)
-
-![Shield Demo](https://via.placeholder.com/800x400/6366f1/ffffff?text=Shield+Demo+GIF)
-
 </div>
 
 ---

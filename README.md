@@ -9,8 +9,6 @@
 
 </div>
 
----
-
 ## 🌟 Why Shield?
 
 In an era where AI tools like **Midjourney v6**, **DALL-E 3**, and **Stable Diffusion 3.5** can create photorealistic images, distinguishing between real and AI-generated content has become nearly impossible. This creates serious problems:

@@ -1,95 +1,139 @@
-# 🛡️ AIShield — Real-Time AI Image Detector (Browser Extension + ML Backend)
+## 🛠️ How To Use AIShield (Full Guide — Instagram, Facebook, Google Images, Everywhere)
 
-![GitHub stars](https://img.shields.io/github/stars/yourusername/AIShield?style=flat&color=yellow)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/AIShield?style=flat&color=orange)
-![Issues](https://img.shields.io/github/issues/yourusername/AIShield)
-![License](https://img.shields.io/github/license/yourusername/AIShield)
-![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-blue?logo=google-chrome)
-
-AIShield is a **browser extension** that detects whether any image you see online is **AI-generated or real**.  
-Works on **Instagram, Facebook, Twitter, Pinterest, Google Images**, and **every website**.
-
-🔍 Hover over any image → AIShield automatically analyzes it.  
-📡 Uses a fine-tuned **AI-vs-Human** deep-learning model.  
-🧠 Backend powered by **FastAPI + PyTorch** or **ONNX Runtime**.  
-⚡ Fast, private, and works on any site.
+Once you install the extension, here’s exactly how it works:
 
 ---
 
-## 🚀 Features
+## 1️⃣ Enable AIShield
+Click the **AIShield icon** → press **“Enable Scanning”** inside the popup.
 
-### 🌐 Browser Extension
-- 🖱️ **Hover-to-Scan** → instantly analyze any image on any website  
-- 🧪 Real-time AI vs Human prediction  
-- 🎨 Modern popup UI with probability bars  
-- 🖼️ Upload-your-own-image support  
-- ⭐ Works on all social media platforms  
-- 🔒 Secure — no data stored
+You will see:
 
-### 🤖 Backend (Machine Learning API)
-- 🧠 Uses state-of-the-art AI image classifier  
-- 📦 REST API endpoint `/detect`  
-- 🖥️ Supports image URLs and Base64 uploads  
-- 🚀 Deployable via **Cloud Run**, **Railway**, or **HuggingFace Spaces**  
-- ⚡ Fast inference
+✓ Scanning enabled
+Hover any image to analyze.
 
+yaml
+Copy code
 
-## 🏗️ How It Works
+When scanning is OFF, the extension does nothing.
 
-### 1️⃣ Content Script — Detects Images on Webpages  
-AIShield scans dynamically loaded images using `MutationObserver` and sends the hovered image to the backend.
+---
 
-### 2️⃣ Background Service Worker  
-Handles API calls and returns prediction results to the popup UI.
+## 2️⃣ Hover Over ANY Image to Scan
+Once scanning is ON:
 
-### 3️⃣ Machine Learning Backend  
-A FastAPI server loads the image classification model and exposes:
+- Move your mouse over **any image** on any website  
+- Pause for **0.5–1 second**  
+- AIShield will analyze ONLY that image  
+- Popup UI shows: “Analyzing…”  
+- Then displays:
+
+✔ Prediction ("AI" or "Human")  
+✔ Confidence bars  
+✔ Probability scores  
+
+This works on:
+
+### 🟦 Instagram  
+- Supports feed posts  
+- Explore page  
+- Profiles  
+- Reels thumbnails  
+- Automatically handles lazy-loaded images while scrolling  
+
+### 🟦 Facebook  
+- Posts  
+- Ads  
+- Profile photos  
+- Marketplace images  
+
+### 🟦 Google Images / Bing Images  
+- Direct-image search results  
+- High-resolution preview images  
+
+### 🟦 Twitter / X  
+- Post images  
+- Previews  
+- Thumbnails  
+
+### 🟦 Pinterest / Reddit / LinkedIn  
+- All supported — no changes required  
+
+You DO NOT need to reload the page.  
+You DO NOT need to click anything.  
+Just **hover**.
+
+---
+
+## 3️⃣ Upload Your Own Images
+The popup also allows manual scanning:
+
+1. Open the extension popup  
+2. Use the **Upload Image** button  
+3. Select any image from your device  
+4. AIShield scans it locally via backend  
+5. Results appear instantly with probability bars  
+
+This is perfect for testing AI images from:
+- Midjourney  
+- Stable Diffusion  
+- DALL·E  
+- Adobe Firefly  
+- OpenAI GPT-Image  
+- AI edits  
+
+---
+
+## 4️⃣ What Happens Behind the Scenes?
+
+The browser extension sends the hovered image to your backend through:
 
 POST /detect
 {
 "url": "<image_url>"
 }
 
-nginx
+rust
 Copy code
 
-or
+or (for uploads)
 
 POST /detect
 {
 "base64": "<image_base64>"
 }
 
-makefile
+pgsql
 Copy code
 
-Returns:
+The backend returns clean JSON:
 
+```json
 {
-"prediction": "ai" | "hum",
-"ai_probability": 0.98,
-"human_probability": 0.02
+  "prediction": "ai",
+  "ai_probability": 0.9821,
+  "human_probability": 0.0179
 }
-
-yaml
+🧪 Running the Backend Locally
+bash
 Copy code
-
----
-
-## 🧪 Running the Backend Locally
-
-```bash
 cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
-🧩 Install the Chrome Extension
-Go to chrome://extensions/
+API will be available at:
 
-Enable Developer Mode
+arduino
+Copy code
+http://127.0.0.1:8000/detect
+🧩 Installing the Chrome Extension
+Go to: chrome://extensions/
+
+Turn on Developer Mode
 
 Click Load Unpacked
 
 Select the extension/ folder
 
-Extension will appear as AIShield
+AIShield will appear in the Chrome toolbar
 
+After enabling scanning, you can use AIShield instantly.

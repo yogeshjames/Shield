@@ -33,35 +33,6 @@ Works on **Instagram, Facebook, Twitter, Pinterest, Google Images**, and **every
 - 🚀 Deployable via **Cloud Run**, **Railway**, or **HuggingFace Spaces**  
 - ⚡ Fast inference
 
----
-
-## 📂 Project Structure
-
-AIShield/
-│
-├── extension/
-│ ├── manifest.json
-│ ├── contentScript.js
-│ ├── background.js
-│ ├── popup.html
-│ ├── popup.js
-│ ├── styles.css
-│ └── assets/
-│ ├── ai.png
-│ ├── human.png
-│
-└── backend/
-├── main.py
-├── detector.py
-├── requirements.txt
-├── Dockerfile
-├── entrypoint.sh
-└── models/
-
-yaml
-Copy code
-
----
 
 ## 🏗️ How It Works
 
